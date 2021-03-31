@@ -29,8 +29,25 @@ const usuario = {
 //});
 
 //Borrar
+//usuariosRef
+//.doc('mW7L4akxWWBLtoHa2VCz')
+//.delete()
+//.then( () => console.log('Borrado') )
+//.catch( e => console.log ('error', e ));
+
+//Select * from usuario;
 usuariosRef
-.doc('mW7L4akxWWBLtoHa2VCz')
-.delete()
-.then( () => console.log('Borrado') )
-.catch( e => console.log ('error', e ));
+.onSnapshot( snap => {
+
+    const usuarios: any[] = []; 
+
+    snap.forEach(snapHijo => {
+        usuarios.push({
+            id: snapHijo.id,
+            ...snapHijo.data()
+        })
+    });
+    
+    console.log(usuarios)
+    
+}) 
