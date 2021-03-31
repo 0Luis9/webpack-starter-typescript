@@ -1,6 +1,3 @@
 
+import './Firebase/Config';
 
-
-const mensaje = 'Hola Mundo!';
-
-console.log( mensaje );
