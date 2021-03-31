@@ -77,3 +77,10 @@ usuariosRef
 .where('salario','>=', 1800)
 .where('activo','==', true )
 .get().then( retornaDocumentos);
+
+
+// select * from usuarios order by 
+usuariosRef
+.orderBy('nombre')
+.orderBy('salario')
+.get().then(retornaDocumentos)
