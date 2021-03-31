@@ -27,3 +27,10 @@ const usuario = {
 //    casado: true,
 //    id: 123
 //});
+
+//Borrar
+usuariosRef
+.doc('mW7L4akxWWBLtoHa2VCz')
+.delete()
+.then( () => console.log('Borrado') )
+.catch( e => console.log ('error', e ));
