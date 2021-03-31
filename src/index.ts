@@ -1,6 +1,6 @@
 
 import db from'./Firebase/Config';
-
+import {retornaDocumentos} from './helpers/mostrar-documentos';
 const usuario = {
     nombre: 'Maria',
     activo: true,
@@ -36,18 +36,8 @@ const usuario = {
 //.catch( e => console.log ('error', e ));
 
 //Select * from usuario;
+//usuariosRef
+//.onSnapshot( retornaDocumentos )
+    
 usuariosRef
-.onSnapshot( snap => {
-
-    const usuarios: any[] = []; 
-
-    snap.forEach(snapHijo => {
-        usuarios.push({
-            id: snapHijo.id,
-            ...snapHijo.data()
-        })
-    });
-    
-    console.log(usuarios)
-    
-}) 
+.get().then( retornaDocumentos );
